@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Person;
-import com.example.demo.repository.PersonRepository;
+import com.example.demo.service.JdbcService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,19 +10,20 @@ import java.util.List;
 @RequestMapping("/persons")
 public class PersonController {
 
-    private final PersonRepository personRepository;
+    private final JdbcService jdbcService;
 
-    public PersonController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public PersonController(JdbcService jdbcService) {
+        this.jdbcService = jdbcService;
     }
 
     @GetMapping
     public List<Person> getAll() {
-        return personRepository.findAll();
+        return jdbcService.getAllPersons();
     }
 
     @PostMapping
-    public Person create(@RequestBody Person person) {
-        return personRepository.save(person);
+    public String create(@RequestBody Person person) {
+        jdbcService.insertPerson(person.getName());
+        return "Personne ajoutée !";
     }
 }

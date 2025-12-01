@@ -24,7 +24,7 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring Boot Web (optionnel si tu veux une API REST) -->
+		<!-- Spring Boot Web-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -43,7 +43,6 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- DevTools pour rechargement automatique (optionnel) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -51,7 +50,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Test -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
